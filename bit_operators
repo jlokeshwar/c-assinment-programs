@@ -1,0 +1,414 @@
+#include<stdio.h>
+
+struct class10
+{
+    int n1,n2;
+    int maths[20];
+    int eng[20];
+}sectionA,sectionB;
+
+int main()
+{
+    int i;
+    printf("Enter the number of students in sectionA :\n");
+    scanf("%d",&sectionA.n1);
+    printf("Enter the marks SectionA maths:\n");
+    for(i=0;i<sectionA.n1;i++)
+    {
+        scanf("%d",&sectionA.maths[i]);
+    }
+    printf("Enter the marks SectionA english:\n");
+    for(i=0;i<sectionA.n1;i++)
+    {
+        scanf("%d",&sectionA.eng[i]);
+    }
+    printf("Enter the number of students in sectionB :\n");
+    scanf("%d",&sectionB.n2);
+    printf("Enter the marks SectionB maths:\n");
+    for(i=0;i<sectionB.n2;i++)
+    {
+        scanf("%d",&sectionB.maths[i]);
+    }
+    printf("Enter the marks SectionB english:\n");
+    for(i=0;i<sectionB.n2;i++)
+    {
+        scanf("%d",&sectionB.eng[i]);
+    }
+    int max_maths_sectionA=sectionA.maths[0];
+    for(int j=0;j<sectionA.n1;j++)
+    {
+        if(sectionA.maths[j]>max_maths_sectionA)
+        max_maths_sectionA=sectionA.maths[j];
+    }
+
+    int max_eng_sectionA=sectionA.eng[0];
+    for(int j=0;j<sectionA.n1;j++)
+    {
+        if(sectionA.eng[j]>max_eng_sectionA)
+        max_eng_sectionA=sectionA.eng[j];
+    }
+    printf("Highest marks in Maths,English SectionA :%d,%d\n",max_maths_sectionA,max_eng_sectionA);
+
+    int max_maths_sectionB=sectionB.maths[0];
+    for(int j=0;j<sectionB.n2;j++)
+    {
+        if(sectionB.maths[j]>max_maths_sectionB)
+        max_maths_sectionB=sectionB.maths[j];
+    }
+
+    int max_eng_sectionB=sectionB.eng[0];
+    for(int j=0;j<sectionB.n2;j++)
+    {
+        if(sectionB.eng[j]>max_eng_sectionB)
+        max_eng_sectionB=sectionB.eng[j];
+    }
+    printf("Highest marks in Maths,English SectionB :%d,%d\n",max_maths_sectionB,max_eng_sectionB);
+
+    printf("Highest marks of a student in Class10 Maths :");
+    if(max_maths_sectionA>max_maths_sectionB)
+    printf("%d\n",max_maths_sectionA);
+    else
+    printf("%d\n",max_maths_sectionB);
+
+     printf("Highest marks of a student in Class10 English :\n");
+    if(max_eng_sectionA>max_eng_sectionB)
+    printf("%d",max_eng_sectionA);
+    else
+    printf("%d",max_eng_sectionB);
+
+}
+
+
+/*output:-
+
+
+Enter the number of students in sectionA :
+5
+Enter the marks SectionA maths:
+44
+55
+66
+77
+88
+Enter the marks SectionA english:
+99
+22
+33
+44
+55
+Enter the number of students in sectionB :
+6
+Enter the marks SectionB maths:
+23
+45
+87
+56
+79
+97
+Enter the marks SectionB english:
+31
+45
+90
+68
+96
+47
+Highest marks in Maths,English SectionA :88,99
+Highest marks in Maths,English SectionB :97,96
+Highest marks of a student in Class10 Maths :97
+Highest marks of a student in Class10 English :
+99/*
+
+
+
+
+
+
+// least significant bit (LSB)
+#include<stdio.h>
+
+int main()
+{
+    int a;
+    printf("enter the number\n");
+    scanf("%d",&a);
+    (a&1)?printf("the least significant bit %d is set(1)",a):printf("the least significant bit %d is unset(0)",a);
+    /*if(a & 1)
+    {
+        printf("the least significant bit %d is set(1)",&a);
+    }
+    else
+    {
+        printf("the least significant bit %d is unset(0)",&a);
+    }*/
+    return 0;
+}
+
+output;
+
+enter the number
+45
+the least significant bit 45 is set(1)
+
+
+
+// most significant bit (MSB)
+#include<stdio.h>
+#define BITS sizeof(int)*8
+int main()
+{
+    int a, msb;
+    msb = 1<<(BITS-1);
+    //bits=sizeof(int)*8;
+   printf("enter the number\n");
+   scanf("%d",&a);
+    //(a&msb)?printf("the MOST significant bit %d is set(1)",a):printf("the MOST significant bit %d is unset(0)",a);
+    if(a&msb)
+    {
+        printf("the MOST significant bit %d is set(1)",a);
+    }
+    else
+    {
+        printf("the MOST significant bit %d is unset(0)",a);
+    }
+    
+    return 0;
+}
+
+output;
+
+enter the number
+-25
+the MOST significant bit -25 is set(1)
+
+
+
+
+//nth bit of number
+#include<stdio.h>
+
+int main()
+{
+    int a,n,bitstatus;
+    printf("enter the number\n");
+    scanf("%d",&a);
+    printf("enter the nth position of number between (0-64)\n");
+    scanf("%d",&n);
+    bitstatus=(a>>n)&1;
+    printf("the %d position is set to %d",n,bitstatus);
+    
+    return 0;
+}
+
+output;
+
+
+
+enter the number
+12
+enter the nth position of number between (0-64)
+2
+the 2 position is set to 1
+
+
+//set of nth bit of number
+#include<stdio.h>
+
+int main()
+{
+    int a,n,num;
+    printf("enter the number\n");
+    scanf("%d",&a);
+    printf("enter the nth position of number between (0-64)\n");
+    scanf("%d",&n);
+    num=(1<<n)|a;
+    printf("number before %d bit is setting %d (in decimals)\n",n,a);
+    printf("number after %d bit is setting %d (in decimals)\n",n,num);
+    return 0;
+}
+
+output:
+
+enter the number
+12
+enter the nth position of number between (0-64)
+1
+number before 1 bit is setting 12 (in decimals)
+number after 1 bit is setting 14 (in decimals)
+
+
+// clear nth bit bit of number
+#include<stdio.h>
+
+int main()
+{
+    int a,n;
+    printf("enter the number\n");
+    scanf("%d",&a);
+    printf("enter the nth bit of number \n");
+    scanf("%d",&n);
+    printf("before the number %d\n",a);
+    a=a&~(1-n);
+    printf("after the number %d\n",a);
+    
+}
+
+output
+
+
+enter the number
+25
+enter the nth bit of number 
+3
+before the number 25
+after the number 1
+
+
+
+// toggle nth bit of number
+#include<stdio.h>
+
+int main()
+{
+    int a,n,new;
+    printf("enter the number\n");
+    scanf("%d",&a);
+    printf("enter the nth bit of number between (0-32)\n");
+    scanf("%d",&n);
+    new=a^1<<n;
+     printf("Bit toggled successfully.\n");
+     printf("Number before toggling %d bit: %d (in decimal)\n", a, n);
+     printf("Number after toggling %d bit: %d (in decimal)\n", a, new);
+   
+    return 0;
+}
+
+output;
+
+
+enter the number
+25
+enter the nth bit of number between (0-32)
+6
+Bit toggled successfully.
+Number before toggling 25 bit: 6 (in decimal)
+Number after toggling 25 bit: 89 (in decimal)
+
+
+
+// highest set bit of number
+#include <stdio.h>
+#define INT_SIZE sizeof(int) * 8 
+
+int main()
+{
+    int i, num=0, j;
+
+    printf("Enter any number: ");
+    scanf("%d", &i);
+
+   
+    for(j=0; j<INT_SIZE; j++)
+    {
+        
+        if((i>>j) & 1)
+            num = j;
+    }
+
+    printf("Highest order set bit in %d is %d", i, num);
+
+    return 0;
+}
+
+output;
+
+Enter any number: 25
+Highest order set bit in 25 is 4
+
+
+
+
+// lowest set bit of number
+#include <stdio.h>
+#define INT_SIZE sizeof(int) * 8 /* Integer size in bits */
+
+int main()
+{
+    int i, num, j;
+
+
+    printf("Enter any number: ");
+    scanf("%d", &i);
+
+    
+    num = INT_SIZE - 1;
+
+    
+    for(j=0; j<INT_SIZE; j++)
+    {
+        
+        if((i>>j) & 1)
+        {
+            num = j;
+
+            
+            break;
+        }
+    }
+
+    printf("Lowest order set bit in %d is %d", i, num);
+
+    return 0;
+}
+
+
+
+output;
+
+
+Enter any number: 90
+Lowest order set bit in 90 is 1
+
+
+
+
+
+// count trailing of zeros in binary number
+#include <stdio.h>
+#define INT_SIZE sizeof(int) * 8 /* Bits required to represent an integer */
+
+int main()
+{
+    int num, count, i;
+
+    
+    printf("Enter any number: ");
+    scanf("%d", &num);
+
+    count = 0;
+
+    
+    for(i=0; i<INT_SIZE; i++)
+    {
+        
+        if((num >> i ) & 1)
+        {
+            
+            break;
+        }
+
+        
+        count++;
+    }
+
+    printf("Total number of trailing zeros in %d is %d.", num, count);
+
+    return 0;
+}
+
+
+output:
+
+Enter any number: 32
+Total number of trailing zeros in 32 is 5.
+
+
