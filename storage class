@@ -1,1 +1,74 @@
 # c-assinment-programs
+// auto storage class
+
+#include<stdio.h>  // header file section
+int main ()
+{
+    auto int a=10;// assigning auto keyword to int a
+    {
+        auto int a=20;//assigning auto keyword to int a
+        {
+            auto int a=30;//assigning auto keyword to int a
+            printf("%d\n",a);// printing a=30
+        }
+        printf("%d\n",a);// printing a=20
+    }
+    printf("%d\n",a);// printing a=10
+ 
+}
+
+
+output:-
+
+
+30
+20
+10
+
+
+
+
+// auto storage class
+
+#include<stdio.h> //header file
+void fun()//intialization of function
+{
+    static int a =10; //assigning static keyword to int a
+    a++; // post incrementing
+    printf("%d\n",a);// printing
+}
+void main()
+{
+    fun();// calling fun()
+    fun();//calling fun()
+    fun();//calling fun()
+}
+
+
+output:-
+
+11
+12
+13
+
+
+
+// extern file1.
+
+#include<stdio.h> //header file
+
+int main()
+{
+  extern int a;//assinging extern keyword int a
+     printf("%d\n",a);// printing value
+  return 0;
+}
+
+// extern file2.compile
+int a=10//assigning the value in a. In file2.c
+
+
+output:-
+
+10
+                                                                                                                                                                                      2,0-1         Top
